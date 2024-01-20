@@ -69,11 +69,36 @@ function handleSubmit() {
     }
   }, 7);
 
-
-  // const emailInput = document.querySelector(".email-input" );
-
-  // let backgroundInterval = setTimeout(() ={
-  //   emailInput.
-  // })
+  handleBackground();
 
 };
+
+function handleBackground() {
+  const buttonBackground = document.querySelector(".button-background-animation" );
+  const inputValue = document.querySelector(".email-input")
+  let progress = 10;
+
+  let backgroundInterval = setInterval(() => {
+    progress += 1;
+    console.log(progress)
+    buttonBackground.style.width = `${progress}%`;
+    if (progress >= 70) {
+        clearInterval(backgroundInterval);
+        inputValue.value = "";
+        let breakNumber = 0; 
+        let takeABreak = setInterval(() => {
+          breakNumber++;
+          if (breakNumber >= 15) {
+            clearInterval(takeABreak);
+            let backgroundIntervalReverse = setInterval(() => {
+              progress -= 1;
+              buttonBackground.style.width = `${progress}%`
+              if (progress <= 20) {
+                clearInterval(backgroundIntervalReverse);
+              }
+            }, 7)
+          }
+        }, 7)
+    }
+  }, 7);
+}

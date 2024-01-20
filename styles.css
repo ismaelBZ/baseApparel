@@ -83,6 +83,9 @@ form {
   border: 1px solid hsla(0, 36%, 70%, 0.9);
   border-radius: 50px;
   background: transparent;
+
+  font-family: var(--josefinSans);
+  color: var(--softRed);
 }
 
 .email-input:focus, .email-input:focus-visible {
@@ -114,17 +117,15 @@ form {
 }
 
 .button-background-animation {
+  width: 20%;
+  height: 100%;
+  border-radius: 150px;
   position: absolute;
-  top: 35%;
+  top: 0%;
   right: 10%;
-  width: 10px;
-  height: 10px;
-  background: blueviolet;
+  background: linear-gradient(135deg, rgb(248, 191, 191), rgb(238, 140, 140));
 }
 
-.button-background-animation:hover {
-  width: 80%;
-}
 
 @media only screen and (min-width: 680px) {
 
