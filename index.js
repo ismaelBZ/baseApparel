@@ -4,7 +4,6 @@ const commingSoonSection = document.getElementById("commingSoonSection")
 
 function resizeLayout() {
 
-
   if (window.innerWidth > 680) {
     
     /* Resize image */
@@ -16,18 +15,17 @@ function resizeLayout() {
     const totalHeight = parseInt(window.getComputedStyle(imgHero).height);
     const blankSpace = totalHeight - headerHight - sectionHeight
 
+    /* Centralizing on resize */
     commingSoonSection.style.marginTop = `${0.8 * (blankSpace / 2)}px`;
     
-//     // const commingSoonHeight = window.getComputedStyle(commingSoonSection).height;
-//     imgHero.style.height = "100vh";
   } 
-
+    /* Returning to css position */
   if (window.innerWidth < 680) {
     commingSoonSection.style.marginTop = "8vh";
   }
 }
 
-resizeLayout();
+resizeLayout(); // Call to on load if the window is loading in a width rezided needeed
 
 const increasePercent = (value, increase) => {
   newValue = `${value+increase}%`;
@@ -41,6 +39,7 @@ const moveSubmitButton = (positionInPercentage) => {
 }
 
 function handleSubmit() {
+  
   const submitButton = document.querySelector(".submit-button");
   let position = 10;
 
@@ -48,18 +47,26 @@ function handleSubmit() {
   let intervalID = setInterval(() => {
     position += 1
     submitButton.style.right = `${position}%`;
+    
+    /* reaching the left position */
     if(position >= 70) {
       clearInterval(intervalID);
       let breakNumber = 0; 
+
+      /* taking a break befor return to right */
       let takeABreak = setInterval(() => {
         breakNumber++;
         console.log(breakNumber);
         if (breakNumber >= 15) {
           clearInterval(takeABreak);
+
+          /* End breack and start return */
           let returnIntervalID = setInterval(() => {
             position -= 1
             submitButton.style.right = `${position}%`;
             console.log(position);
+
+            /* reaching the right position */
             if(position <= 10) {
               clearInterval(returnIntervalID);
             }
@@ -69,30 +76,41 @@ function handleSubmit() {
     }
   }, 7);
 
+  /* Starting handle background call Stack in sequence of moove button */
   handleBackground();
 
 };
 
 function handleBackground() {
+  
   const buttonBackground = document.querySelector(".button-background-animation" );
   const inputValue = document.querySelector(".email-input")
   let progress = 10;
 
+  /* start increasing with from right */
   let backgroundInterval = setInterval(() => {
     progress += 1;
     console.log(progress)
     buttonBackground.style.width = `${progress}%`;
+
+    /* reaching the left position */
     if (progress >= 70) {
         clearInterval(backgroundInterval);
         inputValue.value = "";
         let breakNumber = 0; 
+
+        /* taking a break to accompany the button */
         let takeABreak = setInterval(() => {
           breakNumber++;
           if (breakNumber >= 15) {
             clearInterval(takeABreak);
+
+            /* start decreasing width to return to left side */
             let backgroundIntervalReverse = setInterval(() => {
               progress -= 1;
               buttonBackground.style.width = `${progress}%`
+              
+              /* reaching left side */
               if (progress <= 20) {
                 clearInterval(backgroundIntervalReverse);
               }

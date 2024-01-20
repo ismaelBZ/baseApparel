@@ -9,6 +9,10 @@
   --softRed: hsl(0, 36%, 70%);
 }
 
+html {
+  height: 100%;
+}
+
 * {
   margin: 0;
   margin-block-start: 0px;
@@ -18,6 +22,13 @@
   font-size: 1rem;
   box-sizing: border-box;
 }
+
+body{
+  height: 100%;
+  margin-bottom: 5vh;
+}
+
+/* logo */
 
 .logo-wrapper {
   padding: 3.4vh;
@@ -29,6 +40,8 @@
   min-height: 29px;
 }
 
+/* img */
+
 .img-hero {
   width: 100%;
   max-height: 32vh;
@@ -36,14 +49,17 @@
   object-position: top left;
 }
 
+/* comming soon title */
+
 #commingSoonSection {
   margin-top: 8vh;
+  padding-bottom: 5vh;
 }
 
 .comming-soon {
   font-family: var(--josefinSans);
   letter-spacing: 9px;
-  line-height: 5vh;
+  line-height: 1;
   text-align: center;
 }
 
@@ -57,6 +73,8 @@
   font-size: 2.5rem;
 }
 
+/* comming soon text */
+
 .call-to-action {
   margin: auto;
   margin-top: 1.9vh;
@@ -69,13 +87,18 @@
   color: var(--softRed);
 }
 
+/* form */
+
 form {
   margin-top: 5vh;
+  margin-bottom: 5vh;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+/* input */
 
 .email-input {
   width: 80%;
@@ -92,6 +115,8 @@ form {
   outline: none;
   border: 1px solid hsla(0, 100%, 82%, 0.9);
 }
+
+/* button */
 
 .submit-button { 
   width: 20%;
@@ -116,6 +141,8 @@ form {
   transition: 1s; */
 }
 
+/* background bar on button animation  */
+
 .button-background-animation {
   width: 20%;
   height: 100%;
@@ -126,6 +153,7 @@ form {
   background: linear-gradient(135deg, rgb(248, 191, 191), rgb(238, 140, 140));
 }
 
+/* medias */
 
 @media only screen and (min-width: 680px) {
 
@@ -143,4 +171,19 @@ form {
   #commingSoonSection {
     max-width: 50%;
   }
+}
+
+/* @media only screen and (max-height: 470px) {
+  .comming-soon {
+    line-height: 1;
+  }
+}
+
+@media only screen and (max-height: 740px) {
+
+  #commingSoonSection {
+    margin-top: 4vh;
+  }
+   */
+  
 }
