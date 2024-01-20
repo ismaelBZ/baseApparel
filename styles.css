@@ -42,7 +42,7 @@
 
 .comming-soon {
   font-family: var(--josefinSans);
-  letter-spacing: 3vw;
+  letter-spacing: 9px;
   line-height: 5vh;
   text-align: center;
 }
@@ -83,7 +83,11 @@ form {
   border: 1px solid hsla(0, 36%, 70%, 0.9);
   border-radius: 50px;
   background: transparent;
+}
 
+.email-input:focus, .email-input:focus-visible {
+  outline: none;
+  border: 1px solid hsla(0, 100%, 82%, 0.9);
 }
 
 .submit-button { 
@@ -97,6 +101,29 @@ form {
   box-shadow:
     0px 0px 6px rgba(238, 140, 140, 0.5),
     0px 0px 48px rgba(248, 191, 191);
+}
+
+.submit-button:hover {
+  cursor: pointer;
+}
+
+.submit-button:active {
+  transform: scale(1.01);
+  /* right: 70%;
+  transition: 1s; */
+}
+
+.button-background-animation {
+  position: absolute;
+  top: 35%;
+  right: 10%;
+  width: 10px;
+  height: 10px;
+  background: blueviolet;
+}
+
+.button-background-animation:hover {
+  width: 80%;
 }
 
 @media only screen and (min-width: 680px) {
