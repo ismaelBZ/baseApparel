@@ -26,6 +26,7 @@ html {
 body{
   height: 100%;
   margin-bottom: 5vh;
+  background: #FFF3F3;
 }
 
 /* logo */
@@ -172,6 +173,11 @@ form {
 /* medias */
 
 @media only screen and (min-width: 680px) {
+
+  body {
+    background: url(./images/bg-pattern-desktop.svg) center no-repeat;
+    background-size: cover;
+  }
 
   .img-hero {
     position: absolute;
