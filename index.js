@@ -1,122 +1,79 @@
+// Elements for resposive resize
 const imgHero = document.querySelector(".img-hero");
 const logoWrapper = document.querySelector(".logo-wrapper")
 const commingSoonSection = document.getElementById("commingSoonSection")
+const errorIcon = document.querySelector(".error-icon");
+const buttonSize = document.querySelector(".submit-button");
+const form = document.querySelector("form");
+const emailInput = document.querySelector(".email-input");
+const errorMessage = document.querySelector("#errorMessage");
+
+
+
+/* Show Error Message if email ins`t valid */
+form.addEventListener("submit", (event) => {
+  /*Prevant page refresh by browser */
+  event.preventDefault();
+  
+  if (!emailInput.checkValidity()) {
+    errorMessage.style.color = "#f66a6a";
+    errorMessage.textContent = "Please provide a valid email";
+  } else {
+    emailInput.setCustomValidity("");
+    errorIcon.style.display = "none";
+    errorMessage.style.color = "hsl(0, 36%, 70%)";
+    errorMessage.textContent = "Email sent!";
+    emailInput.value = "";
+  }
+  
+})
+
+emailInput.addEventListener("input", () => {
+  
+  if(!emailInput.checkValidity()) {
+    errorIcon.style.display = "inline";
+  } else {
+    errorIcon.style.display = "none";
+  }
+  
+})
+
+
+
+/* Responsive Resize Function */
 
 function resizeLayout() {
-
+  
   if (window.innerWidth > 680) {
     
     /* Resize image */
     imgHero.setAttribute("src", "./images/hero-desktop.jpg");
-
+    
     /* Resize Comming Soon Section */
     const headerHight = parseInt(window.getComputedStyle(logoWrapper).height);
     const sectionHeight = parseInt(window.getComputedStyle(commingSoonSection).height);
     const totalHeight = parseInt(window.getComputedStyle(imgHero).height);
     const blankSpace = totalHeight - headerHight - sectionHeight
-
+    
     /* Centralizing on resize */
     commingSoonSection.style.marginTop = `${0.8 * (blankSpace / 2)}px`;
     
   } 
-    /* Returning to css position */
+  
+  /* Returning to css position */
   if (window.innerWidth < 680) {
+    
+    /* Position Comming Soon Section */
     commingSoonSection.style.marginTop = "8vh";
+    
   }
+  
+  /* Translate Error Icon */
+  const translateErrorIcon = (percentage) => -(parseInt(window.getComputedStyle(buttonSize).width)*percentage);
+  errorIcon.style.transform = `translateX(${translateErrorIcon(1.25)}px)`;
+  
 }
 
 resizeLayout(); // Call to on load if the window is loading in a width rezided needeed
 
-const increasePercent = (value, increase) => {
-  newValue = `${value+increase}%`;
-  console.log('Novo valor' + newValue);
-  return newValue;
-}
 
-const moveSubmitButton = (positionInPercentage) => {
-  setTimeout(() => {
-  }, 1000);
-}
-
-function handleSubmit() {
-  
-  const submitButton = document.querySelector(".submit-button");
-  let position = 10;
-
-
-  let intervalID = setInterval(() => {
-    position += 1
-    submitButton.style.right = `${position}%`;
-    
-    /* reaching the left position */
-    if(position >= 70) {
-      clearInterval(intervalID);
-      let breakNumber = 0; 
-
-      /* taking a break befor return to right */
-      let takeABreak = setInterval(() => {
-        breakNumber++;
-        console.log(breakNumber);
-        if (breakNumber >= 15) {
-          clearInterval(takeABreak);
-
-          /* End breack and start return */
-          let returnIntervalID = setInterval(() => {
-            position -= 1
-            submitButton.style.right = `${position}%`;
-            console.log(position);
-
-            /* reaching the right position */
-            if(position <= 10) {
-              clearInterval(returnIntervalID);
-            }
-          }, 7);
-        } 
-      }, 7);
-    }
-  }, 7);
-
-  /* Starting handle background call Stack in sequence of moove button */
-  handleBackground();
-
-};
-
-function handleBackground() {
-  
-  const buttonBackground = document.querySelector(".button-background-animation" );
-  const inputValue = document.querySelector(".email-input")
-  let progress = 10;
-
-  /* start increasing with from right */
-  let backgroundInterval = setInterval(() => {
-    progress += 1;
-    console.log(progress)
-    buttonBackground.style.width = `${progress}%`;
-
-    /* reaching the left position */
-    if (progress >= 70) {
-        clearInterval(backgroundInterval);
-        inputValue.value = "";
-        let breakNumber = 0; 
-
-        /* taking a break to accompany the button */
-        let takeABreak = setInterval(() => {
-          breakNumber++;
-          if (breakNumber >= 15) {
-            clearInterval(takeABreak);
-
-            /* start decreasing width to return to left side */
-            let backgroundIntervalReverse = setInterval(() => {
-              progress -= 1;
-              buttonBackground.style.width = `${progress}%`
-              
-              /* reaching left side */
-              if (progress <= 20) {
-                clearInterval(backgroundIntervalReverse);
-              }
-            }, 7)
-          }
-        }, 7)
-    }
-  }, 7);
-}

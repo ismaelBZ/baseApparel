@@ -23,10 +23,11 @@
       <p class="call-to-action">Hello fellow shoppers! We're currently building our new fashion store. 
         Add your email below to stay up-to-date with announcements and our launch deals.
       </p>
-      <form>
-        <input class="email-input" type="email" placeholder="Email Address" required/>
-        <div class="button-background-animation"></div>
-        <button class="submit-button" type="submit" onclick="handleSubmit()"><img src="./images/icon-arrow.svg" alt="Send button" /></button>
+      <form novalidate>
+        <input class="email-input" type="email" placeholder="Email Address" />
+        <img class="error-icon" src="./images/icon-error.svg" />
+        <button class="submit-button" type="submit"><img src="./images/icon-arrow.svg" alt="Send button" /></button>
+        <span id="errorMessage" class="errorMessage"></span>
       </form>
     </section>
   </main>
