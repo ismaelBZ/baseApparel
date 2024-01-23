@@ -8,14 +8,16 @@ const form = document.querySelector("form");
 const emailInput = document.querySelector(".email-input");
 const errorMessage = document.querySelector("#errorMessage");
 
+const emailRegExp = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
 
 
 /* Show Error Message if email ins`t valid */
 form.addEventListener("submit", (event) => {
+  
   /*Prevant page refresh by browser */
   event.preventDefault();
   
-  if (!emailInput.checkValidity()) {
+  if (!emailInput.checkValidity() || emailInput.value == "" || emailRegExp.test(emailInput.value)) {
     errorMessage.style.color = "#f66a6a";
     errorMessage.textContent = "Please provide a valid email";
   } else {
@@ -30,7 +32,7 @@ form.addEventListener("submit", (event) => {
 
 emailInput.addEventListener("input", () => {
   
-  if(!emailInput.checkValidity()) {
+  if(!emailInput.checkValidity() || emailRegExp.test(emailInput.value)) {
     errorIcon.style.display = "inline";
   } else {
     errorIcon.style.display = "none";
