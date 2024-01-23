@@ -30,20 +30,19 @@ form.addEventListener("submit", (event) => {
   
 })
 
+/* Input vallidation while writting */
 emailInput.addEventListener("input", () => {
   
   if(!emailInput.checkValidity() || emailRegExp.test(emailInput.value)) {
     errorIcon.style.display = "inline";
   } else {
     errorIcon.style.display = "none";
+    errorMessage.textContent = "";
   }
   
 })
 
-
-
 /* Responsive Resize Function */
-
 function resizeLayout() {
   
   if (window.innerWidth > 680) {
