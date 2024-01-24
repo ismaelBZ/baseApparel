@@ -8,7 +8,7 @@ const form = document.querySelector("form");
 const emailInput = document.querySelector(".email-input");
 const errorMessage = document.querySelector("#errorMessage");
 
-const emailRegExp = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
+const emailRegExp = /^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\w])$/ig;
 
 
 /* Show Error Message if email ins`t valid */
