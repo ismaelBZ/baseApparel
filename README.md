@@ -1,4 +1,4 @@
-# Frontend Mentor - Base Apparel coming soon page solution
+# Base Apparel - coming soon page
 
 ![desktop](https://github.com/ismaelBZ/baseApparel/assets/107486346/4f57c497-30be-4dba-8132-833aea0d49be)
 
