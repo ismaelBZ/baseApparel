@@ -55,6 +55,6 @@ MDN - [MDN - Form Validation docs](https://developer.mozilla.org/en-US/docs/Lear
 
 ## Acknowledgments
 
-Firs, God, of course. Without Him, I wouldn't be there. Second, my mother and father. They are my strongest support, and there are no words to describe how incredible they are. 
+First, God, of course. Without Him, I wouldn't be there. Second, my mother and father. They are my strongest support, and there are no words to describe how incredible they are. 
 
 Finally, a shoutout to Frontend Mentor for providing this amazing free content for us, developers, to practice and showcase our skills. 
